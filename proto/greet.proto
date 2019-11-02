@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package greet;
+
+option go_package ="greetpb";
+
+message Greeting{
+    string first_name =1;
+    string last_name =2;
+}
+
+message GreetLongRequest{
+    Greeting greeting = 1;
+}
+message GreetLongResponse{
+    string result = 1;
+}
+service GreetLongService{
+    rpc Greet(stream GreetLongRequest) returns (GreetLongResponse) {};
+} 
